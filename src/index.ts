@@ -17,12 +17,6 @@ state.onScreenUpdated(() => {
     renderer.render(state);
 });
 
-Bus.on('click.cancelGame', (e) => {
-    if (confirm('Are you sure?')) {
-        state.setScreen(GameScreenType.Home);
-    }
-});
-
-Bus.on('click.start', () => {
-    state.setScreen(GameScreenType.Game);
+Bus.on('goToScreen', (payload) => {
+    state.setScreen(payload);
 });
