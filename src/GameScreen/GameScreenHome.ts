@@ -13,8 +13,9 @@ export class GameScreenHome extends GameScreen {
 
     protected getHTML(): string {
         return `
-        <ui-header x="50" y="10" height="5" anchor="center center">Hello</ui-header>
-        <ui-button x="50" y="25" anchor="center center" click="start">Start</ui-button>
+        <ui-header x="50" y="10" height="5" anchor="center center">Mindbreaker</ui-header>
+        <ui-header x="50" y="20" height="4" anchor="center top">Lorem lipsum</ui-header>
+        <ui-button x="50" y="80" width="80" height="10" anchor="center top" click="start">Start</ui-button>
         `;
     }
 }

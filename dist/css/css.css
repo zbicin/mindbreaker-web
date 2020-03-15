@@ -25,6 +25,7 @@ ui-header {
 
 ui-button {
     background: red;
+    text-align: center;
     color: white;
     cursor: pointer;
     padding: 1vh 1vw;

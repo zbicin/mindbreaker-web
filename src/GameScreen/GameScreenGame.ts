@@ -45,6 +45,7 @@ export class GameScreenGame extends GameScreen {
         super.onActivate(element);
         this.shuffleColors();
         this.counter = GameScreenGame.CounterStartValue;
+        this.score = 0;
         this.counterIntervalHandle = setInterval(() => {
             if (this.counter === 0) {
                 alert(`Time is up! Your result is ${this.score}`);
@@ -69,7 +70,7 @@ export class GameScreenGame extends GameScreen {
         <ui-header x="50" y="25" height="5" anchor="center center" name="score">0</ui-header>
         <ui-color-tile x="45" y="30" width="40" height="50" anchor="right top" click="leftColor" name="leftColor"></ui-color-tile>
         <ui-color-tile x="55" y="30" width="40" height="50" anchor="left top" click="rightColor" name="rightColor"></ui-color-tile>
-        <ui-button x="50" y="90" anchor="center bottom" click="cancelGame">Go back</ui-button>
+        <ui-button x="50" y="85" width="80" height="5" anchor="center top" click="cancelGame">Go back</ui-button>
         `;
     }
 
