@@ -13,7 +13,7 @@ export class GameScreenHome extends GameScreen {
 
     protected getHTML(): string {
         return `
-        <ui-header x="50" y="10" anchor="center center">Hello</ui-header>
+        <ui-header x="50" y="10" height="5" anchor="center center">Hello</ui-header>
         <ui-button x="50" y="25" anchor="center center" click="start">Start</ui-button>
         `;
     }

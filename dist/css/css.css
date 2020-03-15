@@ -13,9 +13,14 @@
 
 ui-button,
 ui-header,
-ui-label {
+ui-label,
+ui-color-tile {
     display: block;
     position: absolute;
+}
+
+ui-header {
+    font-weight: bold;
 }
 
 ui-button {
@@ -25,9 +30,16 @@ ui-button {
     padding: 1vh 1vw;
 }
 
+ui-color-tile:hover,
 ui-button:hover {
     filter: invert(0.1);
 }
+
+ui-color-tile:active,
 ui-button:active {
     filter: invert(0.3);
+}
+
+ui-color-tile {
+    cursor: pointer;
 }

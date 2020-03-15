@@ -17,4 +17,16 @@ export abstract class GameScreen {
     public onDeactivate(): void {
         ;
     }
+
+    public getElementByName(name: string): HTMLElement {
+        if (!this.element) {
+            throw new Error('No root element for this game screen');
+        }
+
+        const result: HTMLElement | null = this.element.querySelector(`[name="${name}"]`);
+        if (!result) {
+            throw new Error('Element not found');
+        }
+        return result;
+    }
 }
