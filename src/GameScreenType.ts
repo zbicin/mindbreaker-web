@@ -1,4 +1,4 @@
-export enum GameScreen {
+export enum GameScreenType {
     Home,
     Game,
     Result,
