@@ -1,9 +1,15 @@
-export const Colors: Color[] = [
-    { name: 'Blue', value: '#0000FF' },
-    { name: 'Yellow', value: '#FFFF00' },
-    { name: 'Green', value: '#00FF00' },
-    { name: 'Red', value: '#FF0000' }
-];
+const computedStyle: CSSStyleDeclaration = window.getComputedStyle(document.documentElement);
+function getColorValue(name: string): string {
+    return computedStyle.getPropertyValue(`--tiles-${name.toLowerCase()}`);
+}
+export const Colors: Color[] = ['Blue', 'Yellow', 'Green', 'Red']
+    .map((name) => {
+        return {
+            name: name,
+            value: getColorValue(name)
+        };
+    });
+
 
 export interface Color {
     name: string;

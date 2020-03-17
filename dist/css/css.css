@@ -1,6 +1,27 @@
+:root {
+    --main-bg-color: #182952;
+    --main-fg-color: #fff;
+    --tiles-blue: #2b3595;
+    --tiles-violet: #7045af;
+    --tiles-pink: #e14594;
+    --tiles-yellow: #f7f740;
+    --tiles-green: #84ff2e;
+    --tiles-red: #fc3f3f;
+}
+
+body {
+    background: var(--main-bg-color);
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    padding:0;
+    width: 100%vw;
+}
+
 .rootElement {
-    background: white;
+    background: var(--main-bg-color);
     bottom: 0;
+    color: var(--main-fg-color);
     font-family: sans-serif;
     left: 0;
     margin: 0;
@@ -8,6 +29,8 @@
     position: absolute;
     right: 0;
     top: 0;
+    will-change: transform;
+    transition: transform ease-in 100ms;
     user-select: none;
 }
 
@@ -17,18 +40,21 @@ ui-label,
 ui-color-tile {
     display: block;
     position: absolute;
+    z-index: 10;
 }
 
 ui-header {
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 ui-button {
-    background: red;
-    text-align: center;
+    background: var(--tiles-red);
     color: white;
     cursor: pointer;
     padding: 1vh 1vw;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 ui-color-tile:hover,
