@@ -4,22 +4,14 @@ import { GameScreenType } from "../GameScreenType";
 import { getRandomColor, Color } from "./Colors";
 import { tossACoin } from "../Utils";
 
-
 export class GameScreenGame extends GameScreen {
     private static CounterStartValue: number = 3;
-    private static FuzzinessThreshold: number = 3;
     private get counter() { return this._counter; }
     private set counter(c: number) {
         this._counter = c;
         this.getElementByName('counter').innerHTML = `⌛ ${c.toFixed(1)}`;
     };
     private _counter: number = GameScreenGame.CounterStartValue;
-    private get fuzzinessFactor() { return this._fuzzinessFactor; }
-    private set fuzzinessFactor(f: number) {
-        this._fuzzinessFactor = f;
-        this.element!.style.transform = `rotate(${f * this.fuzzinessSign}deg) scale(${1 + f / 50})`;
-    }
-    private _fuzzinessFactor: number = 0;
     private get score() { return this._score; }
     private set score(s: number) {
         this._score = s;
@@ -31,7 +23,6 @@ export class GameScreenGame extends GameScreen {
     private incorrectColor: Color | null = null;
     private leftColor: Color | null = null;
     private rightColor: Color | null = null;
-    private fuzzinessSign: number = 0;
 
     constructor() {
         super();
@@ -54,7 +45,6 @@ export class GameScreenGame extends GameScreen {
         this.shuffleColors();
         this.counter = GameScreenGame.CounterStartValue;
         this.score = 0;
-        this.fuzzinessSign = tossACoin(0.5) ? 1 : -1;
         this.counterIntervalHandle = setInterval(() => {
             if (this.counter === 0) {
                 alert(`Time is up! Your result is ${this.score}`);
@@ -62,7 +52,6 @@ export class GameScreenGame extends GameScreen {
                 return;
             }
             this.counter = Math.max(this.counter - 0.1, 0);
-            this.fuzzinessFactor += 0.1;
         }, 100);
     }
 
@@ -72,7 +61,6 @@ export class GameScreenGame extends GameScreen {
             this.counterIntervalHandle = null;
         }
         this.counter = GameScreenGame.CounterStartValue;
-        this.fuzzinessFactor = 0;
     }
 
     protected getHTML(): string {
@@ -89,8 +77,6 @@ export class GameScreenGame extends GameScreen {
     private correctAnswer(): void {
         this.score += 1;
         this.counter += 1;
-        this.fuzzinessSign = this.leftColor === this.correctColor ? -1 : 1;
-        this.fuzzinessFactor /= 10;
         this.shuffleColors();
     }
 

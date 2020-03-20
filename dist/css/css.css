@@ -18,7 +18,7 @@ body {
     width: 100%vw;
 }
 
-.rootElement {
+#root {
     background: var(--main-bg-color);
     bottom: 0;
     color: var(--main-fg-color);
@@ -30,7 +30,7 @@ body {
     right: 0;
     top: 0;
     will-change: transform;
-    transition: transform ease-in 100ms;
+    transition: transform linear 2000ms;
     user-select: none;
 }
 

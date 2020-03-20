@@ -12,7 +12,6 @@ const gameScreens = new Map<GameScreenType, GameScreen>([
 export class Renderer {
     private activeGameScreen: GameScreen | null = null;
     constructor(private rootElement: HTMLElement) {
-        this.rootElement.classList.add('rootElement');
     }
 
     render(state: GameState) {
