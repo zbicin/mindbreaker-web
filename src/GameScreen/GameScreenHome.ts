@@ -9,12 +9,21 @@ export class GameScreenHome extends GameScreen {
         Bus.on('click.start', () => {
             Bus.emit('goToScreen', GameScreenType.Game);
         });
+
+        Bus.on('click.fullScreen', () => {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                document.body.requestFullscreen();
+            }
+        });
     }
 
     protected getHTML(): string {
         return `
         <ui-header x="50" y="10" height="5" anchor="center center">Mindbreaker</ui-header>
         <ui-header x="50" y="20" height="4" anchor="center top">Lorem lipsum</ui-header>
+        <ui-button x="50" y="60" width="80" height="5" anchor="center top" click="fullScreen">Toggle full screen</ui-button>
         <ui-button x="50" y="80" width="80" height="10" anchor="center top" click="start">Start</ui-button>
         `;
     }
