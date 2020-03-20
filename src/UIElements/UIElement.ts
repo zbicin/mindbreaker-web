@@ -13,7 +13,9 @@ export abstract class UIElement extends HTMLElement {
             const [horizontalAnchor, verticalAnchor] = this.getAttribute('anchor')!.split(' ');
             let translateX = this.anchorToTranslateX(horizontalAnchor);
             let translateY = this.anchorToTranslateY(verticalAnchor);
-            this.style.transform = `translate(${translateX}%, ${translateY}%)`;
+            let translate = `translate(${translateX}%, ${translateY}%)`;
+            console.log(horizontalAnchor, verticalAnchor, translate);
+            this.style.transform = translate;
         }
         if (this.hasAttribute('click')) {
             const clickName = this.getAttribute('click')!;

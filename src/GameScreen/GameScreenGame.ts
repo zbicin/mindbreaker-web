@@ -44,6 +44,7 @@ export class GameScreenGame extends GameScreen {
         super.onActivate(element);
         this.shuffleColors();
         this.counter = GameScreenGame.CounterStartValue;
+        this.animateColors();
         this.score = 0;
         this.counterIntervalHandle = setInterval(() => {
             if (this.counter === 0) {
@@ -61,6 +62,7 @@ export class GameScreenGame extends GameScreen {
             this.counterIntervalHandle = null;
         }
         this.counter = GameScreenGame.CounterStartValue;
+        this.cleanupAnimations();
     }
 
     protected getHTML(): string {
@@ -68,15 +70,42 @@ export class GameScreenGame extends GameScreen {
         <ui-header x="50" y="10" height="10" anchor="center center" name="colorName"></ui-header>
         <ui-header x="50" y="20" height="5" anchor="center center" name="counter">⌛ 0.0</ui-header>
         <ui-header x="50" y="25" height="5" anchor="center center" name="score">0</ui-header>
-        <ui-color-tile x="45" y="30" width="40" height="50" anchor="right top" click="leftColor" name="leftColor"></ui-color-tile>
-        <ui-color-tile x="55" y="30" width="40" height="50" anchor="left top" click="rightColor" name="rightColor"></ui-color-tile>
+        <ui-color-tile x="5" y="30" width="40" height="50" click="leftColor" name="leftColor"></ui-color-tile>
+        <ui-color-tile x="55" y="30" width="40" height="50" click="rightColor" name="rightColor"></ui-color-tile>
         <ui-button x="50" y="85" width="80" height="5" anchor="center top" click="cancelGame">Go back</ui-button>
         `;
+    }
+
+    private animateColors(): void {
+        const colorNames: string[] = ['leftColor', 'rightColor'];
+        const elements: HTMLElement[] = colorNames.map(colorName => this.getElementByName(colorName));
+        elements.forEach((element) => {
+            element.style.animationPlayState = 'paused';
+            element.style.animationName = '';
+        });
+        void elements[0].offsetWidth;
+        elements.forEach((element) => {
+            if (!element.classList.contains('spring')) {
+                element.classList.add('spring');
+            }
+            element.style.animationName = 'spring';
+            element.style.animationPlayState = 'running';
+        });
+    }
+
+    private cleanupAnimations(): void {
+        const colorNames: string[] = ['leftColor', 'rightColor'];
+        const elements: HTMLElement[] = colorNames.map(colorName => this.getElementByName(colorName));
+        elements.forEach((element) => {
+            element.style.animationName = '';
+            element.classList.remove('spring');
+        });
     }
 
     private correctAnswer(): void {
         this.score += 1;
         this.counter += 1;
+        this.animateColors();
         this.shuffleColors();
     }
 

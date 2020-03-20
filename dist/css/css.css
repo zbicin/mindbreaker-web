@@ -45,7 +45,10 @@ ui-color-tile {
 
 ui-header {
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 ui-button {
@@ -53,8 +56,11 @@ ui-button {
     color: white;
     cursor: pointer;
     padding: 1vh 1vw;
+    overflow: hidden;
     text-align: center;
+    text-overflow: ellipsis;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 ui-color-tile:hover,
@@ -69,4 +75,25 @@ ui-button:active {
 
 ui-color-tile {
     cursor: pointer;
+}
+
+.spring {
+    animation-duration: 2s;
+    animation-delay: 0ms;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    will-change: transform;
+}
+
+@keyframes spring {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    5% {
+        transform: rotate(0deg) scale(0.9);
+    }
+    100% {
+        transform: rotate(0deg) scale(1.1);
+    }
 }
