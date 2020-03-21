@@ -23,6 +23,9 @@ export class GameScreenGame extends GameScreen {
     private incorrectColor: Color | null = null;
     private leftColor: Color | null = null;
     private rightColor: Color | null = null;
+    private get canVibrate(): boolean {
+        return navigator.vibrate && localStorage.getItem('vibrations') === 'true';
+    }
 
     constructor() {
         super();
@@ -103,7 +106,7 @@ export class GameScreenGame extends GameScreen {
     }
 
     private correctAnswer(): void {
-        if (navigator.vibrate) {
+        if (this.canVibrate) {
             navigator.vibrate(10);
         }
         this.score += 1;
@@ -113,7 +116,7 @@ export class GameScreenGame extends GameScreen {
     }
 
     private incorrectAnswer(): void {
-        if (navigator.vibrate) {
+        if (this.canVibrate) {
             navigator.vibrate(100);
         }
         alert(`Gotcha! Your result is ${this.score}`);

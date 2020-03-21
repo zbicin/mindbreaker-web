@@ -69,6 +69,10 @@ ui-button[secondary] {
     background: #4b717b;
 }
 
+ui-button[enabled] {
+    background: #78BA00;
+}
+
 ui-color-tile:hover,
 ui-button:hover {
     filter: invert(0.1);
