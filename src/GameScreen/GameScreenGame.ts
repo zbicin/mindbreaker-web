@@ -108,7 +108,7 @@ export class GameScreenGame extends GameScreen {
 
     private correctAnswer(): void {
         if (this.canVibrate) {
-            navigator.vibrate(10);
+            navigator.vibrate(100);
         }
         this.score += 1;
         this.counter += 1;
@@ -118,7 +118,7 @@ export class GameScreenGame extends GameScreen {
 
     private incorrectAnswer(): void {
         if (this.canVibrate) {
-            navigator.vibrate(100);
+            navigator.vibrate(200);
         }
         setTimeout(() => {
             alert(`Gotcha! Your result is ${this.score}`);

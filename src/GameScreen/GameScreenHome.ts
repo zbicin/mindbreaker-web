@@ -7,7 +7,7 @@ export class GameScreenHome extends GameScreen {
         return localStorage.getItem('vibrations') === 'true';
     }
     private set vibrations(v: boolean) {
-        const value: boolean = v && navigator.vibrate && navigator.vibrate(100);
+        const value: boolean = v && navigator.vibrate && navigator.vibrate(200);
         localStorage.setItem('vibrations', value ? 'true' : 'false');
     }
 
