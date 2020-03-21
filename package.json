@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -w",
-    "build:prod": "tsc && workbox generateSW workbox-config.js",
+    "build:prod": "rimraf dist/js/* dist/*.js dist/*.js.map && tsc && workbox generateSW workbox-config.js",
     "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "rimraf": "^3.0.2",
     "typescript": "^3.8.3",
     "workbox-cli": "^5.1.1"
   },
