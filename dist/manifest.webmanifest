@@ -1,0 +1,13 @@
+{
+  "name": "Mindbreaker",
+  "short_name": "Mindbreaker",
+  "start_url": "./?pwa",
+  "display": "fullscreen",
+  "background_color": "#0c0c0c",
+  "description": "A simple game that tricks your brain.",
+  "icons": [{
+    "src": "img/favicon.png",
+    "sizes": "160x160",
+    "type": "image/png"
+  }]
+}

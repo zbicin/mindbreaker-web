@@ -45,6 +45,9 @@ export class GameScreenHome extends GameScreen {
     public onActivate(element: HTMLElement): void {
         super.onActivate(element);
         this.updateVibrationsState();
+        if (window.location.search.includes('pwa')) {
+            this.getElementByName('fullScreen').style.display = 'none';
+        }
     }
 
     private updateVibrationsState(): void {

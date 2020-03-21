@@ -12,12 +12,12 @@
 }
 
 body {
-    background: url('../img/tile.png');
+    background: #0c0c0c url('../img/tile.png');
     height: 100vh;
     margin: 0;
     overflow: hidden;
     padding:0;
-    width: 100%vw;
+    width: 100vw;
 }
 
 #root {
