@@ -49,7 +49,7 @@ export class GameScreenGame extends GameScreen {
         this.counter = GameScreenGame.CounterStartValue;
         this.animateColors();
         this.score = 0;
-        this.counterIntervalHandle = setInterval(() => {
+        this.counterIntervalHandle = window.setInterval(() => {
             if (this.counter === 0) {
                 alert(`Time is up! Your result is ${this.score}`);
                 Bus.emit('goToScreen', GameScreenType.Home);
