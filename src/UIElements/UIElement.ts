@@ -9,41 +9,9 @@ export abstract class UIElement extends HTMLElement {
         if (this.hasAttribute('y')) {
             this.style.top = `${this.getAttribute('y')}vh`;
         }
-        if (this.hasAttribute('anchor')) {
-            const [horizontalAnchor, verticalAnchor] = this.getAttribute('anchor')!.split(' ');
-            let translateX = this.anchorToTranslateX(horizontalAnchor);
-            let translateY = this.anchorToTranslateY(verticalAnchor);
-            let translate = `translate(${translateX}%, ${translateY}%)`;
-            console.log(horizontalAnchor, verticalAnchor, translate);
-            this.style.transform = translate;
-        }
         if (this.hasAttribute('click')) {
             const clickName = this.getAttribute('click')!;
             Bus.hook(this, 'click', clickName);
-        }
-    }
-
-    private anchorToTranslateX(anchor: string): number {
-        switch (anchor) {
-            case 'right':
-                return -100;
-            case 'center':
-                return -50;
-            case 'left':
-            default:
-                return 0;
-        }
-    }
-
-    private anchorToTranslateY(anchor: string): number {
-        switch (anchor) {
-            case 'bottom':
-                return -100;
-            case 'center':
-                return -50;
-            case 'top':
-            default:
-                return 0;
         }
     }
 }

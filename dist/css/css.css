@@ -33,6 +33,7 @@ body {
     will-change: transform;
     transition: transform linear 2000ms;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ui-button,
@@ -47,6 +48,7 @@ ui-color-tile {
 ui-header {
     font-weight: bold;
     overflow: hidden;
+    text-align: center;
     text-overflow: ellipsis;
     text-shadow: 0 0 1em #000;
     text-transform: uppercase;
@@ -75,12 +77,12 @@ ui-button[enabled] {
 
 ui-color-tile:hover,
 ui-button:hover {
-    filter: invert(0.1);
+    /* filter: invert(0.1); */
 }
 
 ui-color-tile:active,
 ui-button:active {
-    filter: invert(0.3);
+    /* filter: invert(0.3); */
 }
 
 ui-color-tile {

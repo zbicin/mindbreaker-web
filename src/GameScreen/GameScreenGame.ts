@@ -70,12 +70,12 @@ export class GameScreenGame extends GameScreen {
 
     protected getHTML(): string {
         return `
-        <ui-header x="50" y="10" height="10" anchor="center center" name="colorName"></ui-header>
-        <ui-header x="50" y="20" height="5" anchor="center center" name="counter">⌛ 0.0</ui-header>
-        <ui-header x="50" y="25" height="5" anchor="center center" name="score">0</ui-header>
+        <ui-header x="10" y="5" height="10" width="80" name="colorName"></ui-header>
+        <ui-header x="10" y="15" height="5" width="80" name="counter">⌛ 0.0</ui-header>
+        <ui-header x="10" y="20" height="5" width="80" name="score">0</ui-header>
         <ui-color-tile x="5" y="35" width="40" height="40" click="leftColor" name="leftColor"></ui-color-tile>
         <ui-color-tile x="55" y="35" width="40" height="40" click="rightColor" name="rightColor"></ui-color-tile>
-        <ui-button secondary x="50" y="85" width="80" height="5" anchor="center top" click="cancelGame">Go back</ui-button>
+        <ui-button secondary x="35" y="85" width="30" height="5" click="cancelGame">Go back</ui-button>
         `;
     }
 
@@ -83,6 +83,7 @@ export class GameScreenGame extends GameScreen {
         const colorNames: string[] = ['leftColor', 'rightColor'];
         const elements: HTMLElement[] = colorNames.map(colorName => this.getElementByName(colorName));
         elements.forEach((element) => {
+            element.blur();
             element.style.animationPlayState = 'paused';
             element.style.animationName = '';
         });

@@ -2,7 +2,7 @@ import { UIElement } from './UIElement';
 export class UIHeader extends UIElement {
     public static TagName: string = 'ui-header';
     public static get observedAttributes() {
-        return ['color', 'height'];
+        return ['color', 'height', 'width'];
     }
 
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -11,7 +11,11 @@ export class UIHeader extends UIElement {
                 this.style.color = newValue;
                 break;
             case 'height':
-                this.style.fontSize = `${newValue}vh`;
+                this.style.fontSize = `${parseFloat(newValue) * 0.75}vh`;
+                this.style.height = `${newValue}vh`;
+                break;
+            case 'width':
+                this.style.width = `${newValue}vw`;
                 break;
         }
     }
