@@ -23,7 +23,7 @@ export class GameScreenHome extends GameScreen {
         return `
         <ui-header x="50" y="10" height="5" anchor="center center">Mindbreaker</ui-header>
         <ui-header x="50" y="20" height="4" anchor="center top">Lorem lipsum</ui-header>
-        <ui-button x="50" y="60" width="80" height="5" anchor="center top" click="fullScreen">Toggle full screen</ui-button>
+        <ui-button x="95" y="5" secondary width="5" height="5" anchor="right top" click="fullScreen">⛶ </ui-button>
         <ui-button x="50" y="80" width="80" height="10" anchor="center top" click="start">Start</ui-button>
         `;
     }

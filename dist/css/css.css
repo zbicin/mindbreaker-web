@@ -1,16 +1,18 @@
 :root {
     --main-bg-color: #182952;
     --main-fg-color: #fff;
-    --tiles-blue: #2b3595;
-    --tiles-violet: #7045af;
-    --tiles-pink: #e14594;
-    --tiles-yellow: #f7f740;
-    --tiles-green: #84ff2e;
-    --tiles-red: #fc3f3f;
+    --tiles-white: #ffffff;
+    --tiles-blue: #2673EC;
+    --tiles-green: #78BA00;
+	--tiles-red: #FF1111;
+    --tiles-yellow: #F4EE00;
+    --tiles-purple: #7200AC;
+    --tiles-pink: #FF76BC;
+    --tiles-orange: #FF7D23;
 }
 
 body {
-    background: var(--main-bg-color);
+    background: url('../img/tile.png');
     height: 100vh;
     margin: 0;
     overflow: hidden;
@@ -19,7 +21,6 @@ body {
 }
 
 #root {
-    background: var(--main-bg-color);
     bottom: 0;
     color: var(--main-fg-color);
     font-family: sans-serif;
@@ -47,12 +48,13 @@ ui-header {
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-shadow: 0 0 1em #000;
     text-transform: uppercase;
     white-space: nowrap;
 }
 
 ui-button {
-    background: var(--tiles-red);
+    background: #00b9e9;
     color: white;
     cursor: pointer;
     padding: 1vh 1vw;
@@ -61,6 +63,10 @@ ui-button {
     text-overflow: ellipsis;
     text-transform: uppercase;
     white-space: nowrap;
+}
+
+ui-button[secondary] {
+    background: #4b717b;
 }
 
 ui-color-tile:hover,

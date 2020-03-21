@@ -2,7 +2,7 @@ const computedStyle: CSSStyleDeclaration = window.getComputedStyle(document.docu
 function getColorValue(name: string): string {
     return computedStyle.getPropertyValue(`--tiles-${name.toLowerCase()}`);
 }
-export const Colors: Color[] = ['Blue', 'Yellow', 'Green', 'Red']
+export const Colors: Color[] = ['White', 'Blue', 'Green', 'Red', 'Yellow', 'Purple', 'Pink', 'Orange']
     .map((name) => {
         return {
             name: name,
