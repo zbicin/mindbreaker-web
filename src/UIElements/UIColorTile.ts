@@ -2,19 +2,20 @@ import { UIElement } from './UIElement';
 export class UIColorTile extends UIElement {
     public static TagName: string = 'ui-color-tile';
     public static get observedAttributes() {
-        return ['color', 'height', 'width'];
+        return super.observedAttributes.concat(['color', 'font-size']);
     }
 
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+        super.attributeChangedCallback(name, oldValue, newValue);
         switch (name) {
             case 'color':
                 this.style.backgroundColor = newValue;
                 break;
             case 'height':
-                this.style.height = `${newValue}vh`;
+                this.style.lineHeight = `${newValue}vh`;
                 break;
-            case 'width':
-                this.style.width = `${newValue}vw`;
+            case 'font-size':
+                this.style.fontSize = `${newValue}vh`;
                 break;
         }
     }

@@ -3,10 +3,12 @@ import { GameScreenType } from "./GameScreenType";
 import { GameScreenHome } from "./GameScreen/GameScreenHome";
 import { GameScreenGame } from "./GameScreen/GameScreenGame";
 import { GameScreen } from "./GameScreen/GameScreen";
+import { GameScreenHowToPlay } from "./GameScreen/GameScreenHowToPlay";
 
 const gameScreens = new Map<GameScreenType, GameScreen>([
     [GameScreenType.Home, new GameScreenHome()],
-    [GameScreenType.Game, new GameScreenGame()]
+    [GameScreenType.Game, new GameScreenGame()],
+    [GameScreenType.HowToPlay, new GameScreenHowToPlay()]
 ]);
 
 export class Renderer {

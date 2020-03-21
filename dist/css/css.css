@@ -39,7 +39,8 @@ body {
 ui-button,
 ui-header,
 ui-label,
-ui-color-tile {
+ui-color-tile,
+ui-textarea {
     display: block;
     position: absolute;
     z-index: 10;
@@ -53,6 +54,11 @@ ui-header {
     text-shadow: 0 0 1em #000;
     text-transform: uppercase;
     white-space: nowrap;
+}
+
+ui-textarea {
+    overflow: auto;
+    text-align: justify;
 }
 
 ui-button {
@@ -75,18 +81,10 @@ ui-button[enabled] {
     background: #78BA00;
 }
 
-ui-color-tile:hover,
-ui-button:hover {
-    /* filter: invert(0.1); */
-}
-
-ui-color-tile:active,
-ui-button:active {
-    /* filter: invert(0.3); */
-}
-
 ui-color-tile {
     cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .spring {

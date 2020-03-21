@@ -1,20 +1,22 @@
+type ColorName = 'White' | 'Blue' | 'Green' | 'Red' | 'Yellow' | 'Purple' | 'Pink' | 'Orange';
 const computedStyle: CSSStyleDeclaration = window.getComputedStyle(document.documentElement);
-function getColorValue(name: string): string {
+export function getColorValue(name: ColorName): string {
     return computedStyle.getPropertyValue(`--tiles-${name.toLowerCase()}`);
 }
-export const Colors: Color[] = ['White', 'Blue', 'Green', 'Red', 'Yellow', 'Purple', 'Pink', 'Orange']
-    .map((name) => {
-        return {
-            name: name,
-            value: getColorValue(name)
-        };
-    });
+const colorNames: ColorName[] = ['White', 'Blue', 'Green', 'Red', 'Yellow', 'Purple', 'Pink', 'Orange'];
+export const Colors: Color[] = colorNames.map((name) => {
+    return {
+        name: name,
+        value: getColorValue(name)
+    };
+});
 
 
 export interface Color {
     name: string;
     value: string;
 }
+
 
 export function getRandomColor(): Color {
     const index: number = Math.floor(Math.random() * Colors.length);
