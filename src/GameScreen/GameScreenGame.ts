@@ -103,6 +103,9 @@ export class GameScreenGame extends GameScreen {
     }
 
     private correctAnswer(): void {
+        if (navigator.vibrate) {
+            navigator.vibrate(10);
+        }
         this.score += 1;
         this.counter += 1;
         this.animateColors();
@@ -110,6 +113,9 @@ export class GameScreenGame extends GameScreen {
     }
 
     private incorrectAnswer(): void {
+        if (navigator.vibrate) {
+            navigator.vibrate(100);
+        }
         alert(`Gotcha! Your result is ${this.score}`);
         Bus.emit('goToScreen', GameScreenType.Home);
     }
