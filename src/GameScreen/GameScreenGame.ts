@@ -119,7 +119,9 @@ export class GameScreenGame extends GameScreen {
         if (this.canVibrate) {
             navigator.vibrate(100);
         }
-        alert(`Gotcha! Your result is ${this.score}`);
+        setTimeout(() => {
+            alert(`Gotcha! Your result is ${this.score}`);
+        }, 100);
         Bus.emit('goToScreen', GameScreenType.Home);
     }
 
