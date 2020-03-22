@@ -1,4 +1,3 @@
 node_modules
 dist/js/*
-dist/sw.*
-dist/workbox*
+dist/sw.*js
