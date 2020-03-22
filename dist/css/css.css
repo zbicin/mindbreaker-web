@@ -11,6 +11,12 @@
     --tiles-orange: #FF7D23;
 }
 
+[hidden] {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
 body {
     background: #0c0c0c url('../img/tile.png');
     height: 100vh;
